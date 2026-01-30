@@ -1,6 +1,5 @@
-# Automated-quantitative-portfolio-asset-report
+# Automated-quantitative-analysis-portfolio-asset-report-using.yahoofinance
 This repository offers a Quantitative Financial Report focused on evaluating the risk and return of an investment portfolio. The analysis uses key metrics such as Volatility, Sharpe Ratio, and Jensen's Alpha to determine the portfolio's efficiency relative to the benchmark (SPY). Objective: To apply quantitative finance to optimize decision-making.
-
 
 Extended version:
   This repository contains a comprehensive analysis of the performance of an investment portfolio over a quarter (August 20, 2025 to November 13, 2025). The main objective is to apply quantitative finance techniques to    evaluate the risk/return trade-off of individual assets and the portfolio as a whole.

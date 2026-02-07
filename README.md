@@ -1,65 +1,67 @@
-# 📈 Impact-of-macro-financial-variables-on-SCCO
+# 📊 Multi-Asset Portfolio Performance & Quantitative Risk Analytics
 
-This repository features a Python-based analytical engine designed to merge macroeconomic indicators with financial market data. The project quantifies the relationship between **"Real Economy" variables**—such as inflation and interest rates—and the performance of equities and commodities, using **$SCCO (Southern Copper Corp)** as a proxy for the copper market.
+[cite_start]This repository features an exhaustive **Quantitative Risk Report** designed to evaluate the stability and efficiency of a diversified investment portfolio during the **August – November 2025** quarter[cite: 5, 20, 28]. [cite_start]The framework utilizes high-frequency risk metrics and statistical tests to validate the portfolio's resilience against market shocks and systematic risk[cite: 385, 386].
 
-🎯 **Objective:** To automate the extraction of multi-source financial data and apply advanced statistical techniques (Rolling Correlations and Annualized Volatility) to identify macroeconomic regimes.
+[cite_start]🎯 **Objective:** To quantify Alpha generation and validate portfolio resilience through the use of statistical return distribution models and risk backtesting[cite: 387, 425].
 
 ---
 
 ## 📖 Extended Overview
-The system integrates high-frequency market data from **Yahoo Finance** with low-frequency macroeconomic series from the **Federal Reserve Economic Data (FRED)**. By synchronizing these datasets into a unified "Master Table," the project enables the study of cross-asset dynamics, such as the effectiveness of Gold as an inflation hedge and the impact of Fed interest rate cycles on equity market risk.
+[cite_start]The system provides a comprehensive quantitative evaluation of a multi-asset portfolio composed of high-growth tech equities, systemic financial entities, and fixed-income stabilizers[cite: 387]. [cite_start]The analysis synchronizes log-daily returns with **Jarque-Bera normality tests** to accurately calibrate risk thresholds and identify regime changes in market volatility[cite: 419, 386].
 
-[Image of a macroeconomic correlation heatmap showing CPI, Fed Funds Rate, and Equity returns]
+
 
 ### 🎯 Key Objectives of the Analysis
-* **Macro-Market Synchronization:** Automated data pipeline that aligns disparate frequencies (daily market prices vs. monthly macro data) using resampling and time-offset techniques.
-* **Rolling Correlation Dynamics:** Implementation of **24-month rolling windows** to track the evolution of historical hedges (e.g., Inflation vs. Gold) and sensitivity to capital costs (Fed Funds Rate vs. SPY).
-* **Multi-Asset Risk Assessment:** Calculation of **63-day (quarterly) rolling annualized volatility** to compare systematic market risk against idiosyncratic commodity risk.
-* **Statistical Visualization:** Generation of comprehensive heatmaps and multi-subplot time series to isolate trends in unemployment, CPI, and interest rates.
+* [cite_start]**Alpha & Beta Attribution:** Evaluation of excess returns via the CAPM model, highlighting a **Jensen's Alpha of 0.13** for the consolidated portfolio[cite: 387, 405].
+* [cite_start]**Tail Risk Modeling:** Calculation of **Value at Risk (VaR)** and **Conditional VaR (CVaR)** at 95% and 99% levels to quantify extreme loss scenarios[cite: 405, 426].
+* [cite_start]**Risk-Adjusted Efficiency:** Comparative analysis using **Sharpe (2.62)** and **Sortino (4.51)** ratios to ensure superior return per unit of downside risk[cite: 405, 427].
+* [cite_start]**Volatility Dynamics:** Implementation of **21-day Rolling Volatility** to detect regime shifts and validate strategic diversification effectiveness[cite: 386, 414].
 
 ---
 
-## 🔍 Assets & Indicators Analyzed
-The engine processes a diverse universe of data to capture the full economic cycle:
+## 🔍 Assets & Benchmarks Analyzed
+The engine processes a strategic mix of assets to isolate active management results:
 
-### 🏛️ Macro Indicators (FRED)
-* **CPIAUCSL:** Consumer Price Index (Inflation).
-* **UNRATE:** Unemployment Rate.
-* **FEDFUNDS:** Effective Federal Funds Rate (Monetary Policy).
-
-### 💰 Financial Assets (Yahoo Finance)
-* **Equities:** **SPY** (S&P 500) and **SCCO** (Southern Copper Corp) for industrial/commodity exposure.
-* **Commodities:** **GLD** (Gold) as a defensive/inflation-linked asset.
+* [cite_start]**🚀 Alpha Drivers (Tech/Growth):** **AAPL** (Profit: 18.66%) [cite: 29] [cite_start]and **AMZN** (Profit: 7.25%)[cite: 92].
+* [cite_start]**🏦 Financial Core:** **JPM** (Beta: 0.76) [cite: 136] [cite_start]and **GS** (Alpha: 0.17)[cite: 186].
+* [cite_start]**🛡️ Stabilizer:** **BND** (Beta: 0.01), acting as the primary hedge against systematic risk[cite: 351, 375].
+* [cite_start]**📊 Benchmarks:** **SPY** (S&P 500) [cite: 215] [cite_start]and **DIA** (Dow Jones) [cite: 265] for relative performance validation.
 
 ---
 
-## 📊 Key Portfolio & Macro Results
-* **Risk Regimes:** The engine identified a significant volatility gap; **SCCO (38.49%)** exhibited more than triple the annualized risk of the **SPY benchmark (11.47%)** by early 2026.
-* **Macro Correlations:**
-    * **Inflation vs. Rates:** A strong positive correlation (**0.88**) between CPI and Fed Funds Rate, reflecting active monetary policy response.
-    * **Monetary Policy Impact:** An inverse relationship (**-0.63**) between Unemployment and Rates, validating **Phillips Curve** dynamics.
-* **Market Efficiency:** Gold (GLD) demonstrated a moderate positive correlation (**0.21**) with Inflation, acting as a partial hedge during the 2020-2025 cycle.
+## 📈 Key Portfolio Results
+* [cite_start]**Capital Efficiency:** The portfolio achieved a **Sharpe Ratio of 2.62**, significantly outperforming the **1.78 benchmark (SPY)**[cite: 405, 427].
+* [cite_start]**Diversification Benefit:** Portfolio volatility was contained at **0.12** [cite: 405][cite_start], effectively neutralizing individual asset shocks through the "BND buffer"[cite: 386, 426].
+* [cite_start]**Cumulative Performance:** Total **Profit of 8.04%** achieved over a 55-day trading period[cite: 405].
+* [cite_start]**Risk Integrity:** Successful management of tail risk evidenced by a **VaR 99 of -1.67%**, lower than individual high-beta assets[cite: 405, 426].
 
 ---
 
 ## 🛠️ Code Structure & Pipeline
 
-### 1. Data Extraction 📥
-* Utilizes `pandas_datareader` for **FRED API** and `yfinance` for equity markets.
+### 1. Data Processing Layer 📥
+* [cite_start]Automated retrieval of tickers via **yfinance** with statistical cleaning of outliers and skewness handling[cite: 47, 419].
 
-### 2. Feature Engineering ⚙️
-* Implementation of monthly percentage changes and data cleaning via `resample()` to maintain statistical integrity across different timeframes.
+### 2. Statistical Core 🧬
+* [cite_start]**Normality Testing:** Application of **Jarque-Bera tests** to assess the viability of Gaussian vs. non-normal risk models[cite: 419].
+* [cite_start]**Performance Attribution:** Breakdown of Jensen's Alpha and Beta to isolate value creation from market exposure[cite: 387, 425].
 
-### 3. Statistical Core 🧬
-* **Dynamic Correlations:** `rolling().corr()` over a 24-month window.
-* **Annualized Risk:** `rolling().std() * np.sqrt(252)` to standardize daily returns into risk metrics.
-
-### 4. Visualization Stack 🎨
-* **Seaborn:** For professional correlation heatmaps.
-* **Matplotlib:** For synchronized macro-trend plotting and dual-axis time series.
+### 3. Visualization Suite 🎨
+* [cite_start]**Return Distribution:** Histograms featuring **Historical VaR** thresholds for tail risk visualization[cite: 420, 421].
+* [cite_start]**Rolling Metrics:** Dynamic 21-day charts to monitor the evolution of risk regimes[cite: 414].
 
 ---
 
 ## 🚀 Technologies & Concepts Used
-* **Macroeconometrics:** Monetary Policy Analysis, Inflation Hedging, and Business Cycle tracking.
-* **
+* [cite_start]**Quantitative Finance:** Capital Asset Pricing Model (CAPM), Jensen's Alpha, Sortino Ratio[cite: 387, 425, 427].
+* [cite_start]**Risk Management:** Value at Risk (VaR), Volatility Clustering, and Diversification Analysis[cite: 386, 405].
+* **Python Stack:** Pandas & NumPy (Matrix operations), Matplotlib & Seaborn (High-fidelity financial plotting).
+
+---
+
+## ⚙️ Installation & Requirements
+
+### 1. Clone the repository
+```bash
+git clone [https://github.com/tu-usuario/Automated-Portfolio-Risk-Analysis.git](https://github.com/tu-usuario/Automated-Portfolio-Risk-Analysis.git)
+cd Automated-Portfolio-Risk-Analysis

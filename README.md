@@ -1,37 +1,65 @@
-# Automated-quantitative-analysis-portfolio-asset-report-using-yahoo-finance
-This repository offers a Quantitative Financial Report focused on evaluating the risk and return of an investment portfolio. The analysis uses key metrics such as Volatility, Sharpe Ratio, and Jensen's Alpha to determine the portfolio's efficiency relative to the benchmark (SPY). Objective: To apply quantitative finance to optimize decision-making.
+# 📈 Impact-of-macro-financial-variables-on-SCCO
 
-Extended version:
-  This repository contains a comprehensive analysis of the performance of an investment portfolio over a quarter (August 20, 2025 to November 13, 2025). The main objective is to apply quantitative finance techniques to    evaluate the risk/return trade-off of individual assets and the portfolio as a whole.
+This repository features a Python-based analytical engine designed to merge macroeconomic indicators with financial market data. The project quantifies the relationship between **"Real Economy" variables**—such as inflation and interest rates—and the performance of equities and commodities, using **$SCCO (Southern Copper Corp)** as a proxy for the copper market.
 
-Key Objectives of the Analysis
-  Risk Measurement: Calculation of Volatility (21-day rolling volatility) and historical Value at Risk (VaR) at 95% and 99% confidence levels.
-  Risk-Adjusted Return Evaluation: Use of key ratios such as the Sharpe Ratio and the Sortino Ratio to measure capital efficiency.
-  Relative Performance Analysis: Calculation of Jensen's Alpha and Beta to determine risk-adjusted return relative to the benchmark (SPY).
-  Statistical Analysis: Study of the return distribution (mean, median, skewness, kurtosis) to identify the presence of fat tails (tail risk) and normality.
+🎯 **Objective:** To automate the extraction of multi-source financial data and apply advanced statistical techniques (Rolling Correlations and Annualized Volatility) to identify macroeconomic regimes.
 
-Assets Analyzed
-  The portfolio includes a mix of high-momentum, value, and stabilizing assets:
-  Individual Equities: Apple (AAPL), Amazon (AMZN), JPMorgan (JPM), Goldman Sachs (GS).
-  Equity ETFs (Benchmarks): SPDR S&P 500 (SPY) and Dow Jones Industrial Average (DIA).
-  Fixed Income (Stabilizer): Vanguard Total Bond Market ETF (BND).
+---
 
-Key Portfolio Results
-  The quantitative analysis of the portfolio demonstrated the effectiveness of diversification:
-  Portfolio Beta: 0.92, indicating a slightly lower systematic risk than the market.
-  Portfolio Volatility: 0.12, lower than SPY (0.11), confirming effective active risk management.
-  Alpha Jensen: 0.15, confirming value creation by portfolio management.
-  Sharpe Ratio: 3.28, higher than the SPY benchmark (2.37), demonstrating improved capital efficiency.
+## 📖 Extended Overview
+The system integrates high-frequency market data from **Yahoo Finance** with low-frequency macroeconomic series from the **Federal Reserve Economic Data (FRED)**. By synchronizing these datasets into a unified "Master Table," the project enables the study of cross-asset dynamics, such as the effectiveness of Gold as an inflation hedge and the impact of Fed interest rate cycles on equity market risk.
 
-Code Structure
-  The conceptual code file (comment_description and comment_metrics) contains the textual analysis structure for a financial reporting backend, where comments are generated based on calculated numerical and graphical      data.
-  comment_description: Contains the analysis of price evolution, daily returns (skew, outliers), and rolling volatility, linking price action to macroeconomic or asset-specific events.
-  Metrics comment: Summarizes the evaluation of risk metrics (Alpha, Beta, Sharpe, VaR), interpreting the asset's efficiency and risk for decision-making.
+[Image of a macroeconomic correlation heatmap showing CPI, Fed Funds Rate, and Equity returns]
 
-Technologies/Concepts Used
-  Quantitative Finance
-  Portfolio Management (Modern Portfolio Theory - MPT)
-  Python/Pandas (Implicit for metrics)
-  Return Distribution Analysis
-  Risk Metrics (VaR, Volatility)
-  Performance Metrics (Sharpe, Jensen's Alpha)
+### 🎯 Key Objectives of the Analysis
+* **Macro-Market Synchronization:** Automated data pipeline that aligns disparate frequencies (daily market prices vs. monthly macro data) using resampling and time-offset techniques.
+* **Rolling Correlation Dynamics:** Implementation of **24-month rolling windows** to track the evolution of historical hedges (e.g., Inflation vs. Gold) and sensitivity to capital costs (Fed Funds Rate vs. SPY).
+* **Multi-Asset Risk Assessment:** Calculation of **63-day (quarterly) rolling annualized volatility** to compare systematic market risk against idiosyncratic commodity risk.
+* **Statistical Visualization:** Generation of comprehensive heatmaps and multi-subplot time series to isolate trends in unemployment, CPI, and interest rates.
+
+---
+
+## 🔍 Assets & Indicators Analyzed
+The engine processes a diverse universe of data to capture the full economic cycle:
+
+### 🏛️ Macro Indicators (FRED)
+* **CPIAUCSL:** Consumer Price Index (Inflation).
+* **UNRATE:** Unemployment Rate.
+* **FEDFUNDS:** Effective Federal Funds Rate (Monetary Policy).
+
+### 💰 Financial Assets (Yahoo Finance)
+* **Equities:** **SPY** (S&P 500) and **SCCO** (Southern Copper Corp) for industrial/commodity exposure.
+* **Commodities:** **GLD** (Gold) as a defensive/inflation-linked asset.
+
+---
+
+## 📊 Key Portfolio & Macro Results
+* **Risk Regimes:** The engine identified a significant volatility gap; **SCCO (38.49%)** exhibited more than triple the annualized risk of the **SPY benchmark (11.47%)** by early 2026.
+* **Macro Correlations:**
+    * **Inflation vs. Rates:** A strong positive correlation (**0.88**) between CPI and Fed Funds Rate, reflecting active monetary policy response.
+    * **Monetary Policy Impact:** An inverse relationship (**-0.63**) between Unemployment and Rates, validating **Phillips Curve** dynamics.
+* **Market Efficiency:** Gold (GLD) demonstrated a moderate positive correlation (**0.21**) with Inflation, acting as a partial hedge during the 2020-2025 cycle.
+
+---
+
+## 🛠️ Code Structure & Pipeline
+
+### 1. Data Extraction 📥
+* Utilizes `pandas_datareader` for **FRED API** and `yfinance` for equity markets.
+
+### 2. Feature Engineering ⚙️
+* Implementation of monthly percentage changes and data cleaning via `resample()` to maintain statistical integrity across different timeframes.
+
+### 3. Statistical Core 🧬
+* **Dynamic Correlations:** `rolling().corr()` over a 24-month window.
+* **Annualized Risk:** `rolling().std() * np.sqrt(252)` to standardize daily returns into risk metrics.
+
+### 4. Visualization Stack 🎨
+* **Seaborn:** For professional correlation heatmaps.
+* **Matplotlib:** For synchronized macro-trend plotting and dual-axis time series.
+
+---
+
+## 🚀 Technologies & Concepts Used
+* **Macroeconometrics:** Monetary Policy Analysis, Inflation Hedging, and Business Cycle tracking.
+* **
